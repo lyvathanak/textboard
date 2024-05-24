@@ -82,14 +82,17 @@
     </div>
 
     <!-- Display Screen -->
-    <div id="display-screen" class="hidden screen flex items-center justify-center">
+    <div id="display-screen" class="hidden screen flex flex-col items-center justify-center">
         <div id="generated-text" class="text-center"></div>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md mt-4 back">Back</button>
     </div>
 
     <script>
         const generateButton = document.querySelector('.generate');
+        const backButton = document.querySelector('.back');
 
         generateButton.addEventListener('click', handleGenerateClick);
+        backButton.addEventListener('click', handleBackClick);
 
         function handleGenerateClick() {
             // Get user input and options
@@ -113,6 +116,12 @@
             // Switch to the display screen
             document.getElementById('form-screen').classList.add('hidden');
             document.getElementById('display-screen').classList.remove('hidden');
+        }
+
+        function handleBackClick() {
+            // Switch back to the form screen
+            document.getElementById('display-screen').classList.add('hidden');
+            document.getElementById('form-screen').classList.remove('hidden');
         }
     </script>
 </body>
