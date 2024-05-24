@@ -3,109 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>TextBoard</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Allura&family=Tangerine&family=Cookie&family=Herr+Von+Muellerhoff&family=Precious&family=Scribble&family=La+Sonnambula&family=Agatha&family=Self+Deception&family=Lemon+Jelly&family=Lovely+Coffee&family=Streetwear&family=Cadency&family=Bayshore&family=Retro+Vibes&family=Shalma&family=Maghrib&family=Tomatoes&family=Amsterdam&family=Make+Summer+Fun&family=Feeling+Lonely&family=Hamster+Script&family=Glory+Culture&family=Berrylicious&family=Shathika&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="highlight">the TextBoard</div>
-    </header>
-    <div class="container">
-        <div class="form-container">
-            <div class="form-group">
-                <label for="text">Text</label>
-                <input type="text" id="text" value="I Love You">
+    <div class="header bg-blue-100 p-4">
+        <div class="font-thin">the</div>
+        <div class="font-extrabold">TextBoard</div>
+    </div>
+    <div class="container mx-auto px-4 py-4 bg-gray-100 rounded-lg shadow-md">
+        <div class="form-grid p-4 space-y-4">
+            
+            <!-- Create Section -->
+            <div class="section">
+                <div class="font-mono p-2 label">Text</div>
+                <input type="text" id="text-input" class="input" placeholder="Type here...">
             </div>
-            <div class="form-group">
-                <label for="color">Color</label>
-                <input type="color" id="color" value="#fefcbf">
-            </div>
-            <div class="form-group">
-                <label for="font">Font</label>
-                <select id="font">
-                    <option value="Arial">Arial</option>
-                    <option value="Figma Hand" selected>Figma Hand</option>
-                    <option value="Courier New">Courier New</option>
-                    <option value="Roboto">Roboto</option>
-                    <option value="Pacifico">Pacifico</option>
-                    <option value="Open Sans">Open Sans</option>
-                    <option value="Lobster">Lobster</option>
-                    <option value="Montserrat">Montserrat</option>
-                    <option value="Raleway">Raleway</option>
-                    <option value="Playfair Display">Playfair Display</option>
-                    <option value="Quicksand">Quicksand</option>
-                    <option value="Poppins">Poppins</option>
-                    <option value="Lato">Lato</option>
-                    <option value="Oswald">Oswald</option>
-                    <option value="Bebas Neue">Bebas Neue</option>
-                    <option value="Ubuntu">Ubuntu</option>
-                    <option value="Nunito">Nunito</option>
-                    <option value="Fjalla One">Fjalla One</option>
-                    <option value="Indie Flower">Indie Flower</option>
-                    <option value="Merriweather">Merriweather</option>
-                    <option value="Comfortaa">Comfortaa</option>
-                    <option value="Rubik">Rubik</option>
-                    <option value="Source Sans Pro">Source Sans Pro</option>
+
+            <!-- Font Section -->
+            <div class="section">
+                <div class="font-mono p-2 label">Font</div>
+                <select id="font-select" class="input">
+                    <option value="'Dancing Script', cursive">Dancing Script</option>
+                    <option value="'Allura', cursive">Allura</option>
+                    <option value="'Tangerine', cursive">Tangerine</option>
+                    <option value="'Cookie', cursive">Cookie</option>
+                    <option value="'Herr Von Muellerhoff', cursive">Herr Von Muellerhoff</option>
+                    <option value="'Precious', cursive">Precious</option>
+                    <option value="'Scribble', cursive">Scribble</option>
+                    <option value="'La Sonnambula', cursive">La Sonnambula</option>
+                    <option value="'Agatha', cursive">Agatha</option>
+                    <option value="'Self Deception', cursive">Self Deception</option>
+                    <option value="'Lemon Jelly', cursive">Lemon Jelly</option>
+                    <option value="'Lovely Coffee', cursive">Lovely Coffee</option>
+                    <option value="'Streetwear', cursive">Streetwear</option>
+                    <option value="'Cadency', cursive">Cadency</option>
+                    <option value="'Bayshore', cursive">Bayshore</option>
+                    <option value="'Retro Vibes', cursive">Retro Vibes</option>
+                    <option value="'Shalma', cursive">Shalma</option>
+                    <option value="'Maghrib', cursive">Maghrib</option>
+                    <option value="'Tomatoes', cursive">Tomatoes</option>
+                    <option value="'Amsterdam', cursive">Amsterdam</option>
+                    <option value="'Make Summer Fun', cursive">Make Summer Fun</option>
+                    <option value="'Feeling Lonely', cursive">Feeling Lonely</option>
+                    <option value="'Hamster Script', cursive">Hamster Script</option>
+                    <option value="'Glory Culture', cursive">Glory Culture</option>
+                    <option value="'Berrylicious', cursive">Berrylicious</option>
+                    <option value="'Shathika', cursive">Shathika</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="animation">Animation</label>
-                <select id="animation">
-                    <option value="none">None</option>
-                    <option value="wave">Wave</option>
-                    <option value="flip">Flip</option>
-                    <option value="fade-in">Fade-In</option>
-                    <option value="slide-in">Slide-In</option>
-                    <option value="zoom-in">Zoom-In</option>
-                    <option value="bounce">Bounce</option>
-                    <option value="rotate">Rotate</option>
-                    <option value="shake">Shake</option>
-                    <option value="pulse">Pulse</option>
-                    <option value="jiggle">Jiggle</option>
+
+            <!-- Color Section -->
+            <div class="section">
+                <div class="font-mono p-2 label">Color</div>
+                <select id="color-select" class="input">
+                    <option value="Yellow">Yellow</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Red">Red</option>
+                    <option value="Green">Green</option>
+                    <option value="Black">Black</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="speed">Speed</label>
-                <select id="speed">
-                    <option value="5s">Slow</option>
-                    <option value="3s" selected>Medium</option>
-                    <option value="1s">Fast</option>
+
+            <!-- Animation Section -->
+            <div class="section">
+                <div class="font-mono p-2 label">Animation</div>
+                <select id="animation-select" class="input">
+                    <option value="Still">Still</option>
+                    <option value="Left to Right">Left to Right</option>
+                    <option value="Right to Left">Right to Left</option>
+                    <option value="Up">Up</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="theme">Theme</label>
-                <input type="color" id="theme" value="#e1bee7">
+
+            <!-- Speed Section -->
+            <div class="section">
+                <div class="font-mono p-2 label">Speed</div>
+                <select id="speed-select" class="input">
+                    <option value="Medium">Medium</option>
+                    <option value="Slow">Slow</option>
+                    <option value="Fast">Fast</option>
+                </select>
+            </div>
+
+            <!-- Theme Section -->
+            <div class="section">
+                <div class="font-mono p-2 label">Theme</div>
+                <select id="theme-select" class="input">
+                    <option value="Light">Light</option>
+                    <option value="Dark">Dark</option>
+                </select>
             </div>
         </div>
-        <button id="generate">Generate</button>
-    </div>
-    <div class="full-screen" id="fullScreen">
-        <div id="displayTextContainer">
-            <div id="displayText"></div>
+        <div class="flex justify-center mt-4">
+            <button id="generate-btn" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md">Generate</button>
         </div>
-        <button class="back-button" id="backButton">Back</button>
     </div>
+
+    <div id="display-section" class="hidden fixed inset-0 flex items-center justify-center bg-gray-800 text-white">
+        <div id="display-text" class="text-5xl"></div>
+        <button id="back-btn" class="absolute bottom-4 right-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md">Back</button>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
+
