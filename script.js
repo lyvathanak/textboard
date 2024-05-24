@@ -1,24 +1,27 @@
-document.getElementById('generate').addEventListener('click', function() {
-    const text = document.getElementById('text').value;
-    const color = document.getElementById('color').value;
-    const font = document.getElementById('font').value;
-    const animation = document.getElementById('animation').value;
-    const speed = document.getElementById('speed').value;
-    const theme = document.getElementById('theme').value;
+document.addEventListener('DOMContentLoaded', () => {
+    const generateBtn = document.getElementById('generate-btn');
+    const backBtn = document.getElementById('back-btn');
+    const displaySection = document.getElementById('display-section');
+    const displayText = document.getElementById('display-text');
 
-    const displayText = document.getElementById('displayText');
-    const displayTextContainer = document.getElementById('displayTextContainer');
+    generateBtn.addEventListener('click', () => {
+        const textInput = document.getElementById('text-input').value;
+        const fontSelect = document.getElementById('font-select').value;
+        const colorSelect = document.getElementById('color-select').value;
+        const animationSelect = document.getElementById('animation-select').value;
+        const speedSelect = document.getElementById('speed-select').value;
+        const themeSelect = document.getElementById('theme-select').value;
 
-    displayText.textContent = text;
-    displayText.style.color = color;
-    displayText.style.fontFamily = font;
-    displayText.style.animation = `${animation} ${speed} infinite`;
-    displayTextContainer.style.backgroundColor = theme;
+        displayText.textContent = textInput;
+        displayText.style.fontFamily = fontSelect;
+        displayText.style.color = colorSelect.toLowerCase();
 
-    document.getElementById('fullScreen').style.display = 'flex';
-});
+        displayText.className = `${animationSelect.toLowerCase()} ${speedSelect.toLowerCase()}`;
+        displaySection.className = `fixed inset-0 flex items-center justify-center ${themeSelect.toLowerCase()}`;
+        displaySection.classList.remove('hidden');
+    });
 
-document.getElementById('backButton').addEventListener('click', function() {
-    document.getElementById('fullScreen').style.display = 'none';
-    document.body.style.backgroundColor = '#fff';
+    backBtn.addEventListener('click', () => {
+        displaySection.classList.add('hidden');
+    });
 });
