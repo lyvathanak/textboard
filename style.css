@@ -1,3 +1,12 @@
+/* General styles */
+.screen {
+    height: 100vh;
+}
+
+.hidden {
+    display: none;
+}
+
 /* Header styles */
 .header {
     display: flex;
@@ -74,4 +83,71 @@ button {
 
 button:hover {
     background-color: #38a169;
+}
+
+/* Display screen styles */
+#display-screen {
+    background-color: #f9fafb;
+}
+
+#generated-text {
+    font-size: 10vw;
+    text-align: center;
+}
+
+/* Example animation classes */
+.animation-Still {
+    animation: none;
+}
+
+.animation-Left-to-Right {
+    animation: left-to-right 5s infinite linear;
+}
+
+.animation-Right-to-Left {
+    animation: right-to-left 5s infinite linear;
+}
+
+.animation-Up {
+    animation: up 5s infinite linear;
+}
+
+/* Example speed classes */
+.speed-Slow {
+    animation-duration: 10s;
+}
+
+.speed-Medium {
+    animation-duration: 5s;
+}
+
+.speed-Fast {
+    animation-duration: 2s;
+}
+
+/* Keyframes for animations */
+@keyframes left-to-right {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(100%); }
+}
+
+@keyframes right-to-left {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
+
+@keyframes up {
+    from { transform: translateY(100%); }
+    to { transform: translateY(-100%); }
+}
+
+/* Example theme classes */
+.theme-Light {
+    color: black;
+    background-color: white;
+}
+
+.theme-Dark {
+    color: white;
+    background-color: black;
 }

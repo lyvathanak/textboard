@@ -8,76 +8,112 @@
     <title>TextBoard</title>
 </head>
 <body>
-    <div class="header bg-blue-100 p-4">
-        <div class="font-thin">the</div>
-        <div class="font-extrabold">TextBoard</div>
-    </div>
-    <div class="container mx-auto px-4 py-4 bg-gray-100 rounded-lg shadow-md">
-        <div class="form-grid p-4 space-y-4">
-            
-            <!-- Create Section -->
-            <div class="section">
-                <div class="font-mono p-2 label">Text</div>
-                <input type="text" class="input" placeholder="Type here...">
-            </div>
+    <!-- Input Form Screen -->
+    <div id="form-screen" class="screen">
+        <div class="header bg-blue-100 p-4">
+            <div class="font-thin">the</div>
+            <div class="font-extrabold">TextBoard</div>
+        </div>
+        <div class="container mx-auto px-4 py-4 bg-gray-100 rounded-lg shadow-md">
+            <div class="form-grid p-4 space-y-4">
+                <!-- Create Section -->
+                <div class="section">
+                    <div class="font-mono p-2 label">Text</div>
+                    <input type="text" class="input" placeholder="Type here...">
+                </div>
 
-            <!-- Font Section -->
-            <div class="section">
-                <div class="font-mono p-2 label">Font</div>
-                <select class="input">
-                    <option value="Figma Hand">Figma Hand</option>
-                    <option value="Lobster">Lobster Color</option>
-                    <option value="Arial">Arial</option>
-                    <option value="Verdana">Verdana</option>
-                    <option value="Times New Roman">Times New Roman</option>
-                </select>
-            </div>
+                <!-- Font Section -->
+                <div class="section">
+                    <div class="font-mono p-2 label">Font</div>
+                    <select class="input" data-label="Font">
+                        <option value="Figma Hand">Figma Hand</option>
+                        <option value="Lobster">Lobster Color</option>
+                        <option value="Arial">Arial</option>
+                        <option value="Verdana">Verdana</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                    </select>
+                </div>
 
-            <!-- Color Section -->
-            <div class="section">
-                <div class="font-mono p-2 label">Color</div>
-                <select class="input">
-                    <option value="Yellow">Yellow</option>
-                    <option value="Blue">Blue</option>
-                    <option value="Red">Red</option>
-                    <option value="Green">Green</option>
-                </select>
-            </div>
+                <!-- Color Section -->
+                <div class="section">
+                    <div class="font-mono p-2 label">Color</div>
+                    <select class="input" data-label="Color">
+                        <option value="Yellow">Yellow</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Red">Red</option>
+                        <option value="Green">Green</option>
+                    </select>
+                </div>
 
-            <!-- Animation Section -->
-            <div class="section">
-                <div class="font-mono p-2 label">Animation</div>
-                <select class="input">
-                    <option value="Still">Still</option>
-                    <option value="Left to Right">Left to Right</option>
-                    <option value="Right to Left">Right to Left</option>
-                    <option value="Up">Up</option>
-                </select>
-            </div>
+                <!-- Animation Section -->
+                <div class="section">
+                    <div class="font-mono p-2 label">Animation</div>
+                    <select class="input" data-label="Animation">
+                        <option value="Still">Still</option>
+                        <option value="Left to Right">Left to Right</option>
+                        <option value="Right to Left">Right to Left</option>
+                        <option value="Up">Up</option>
+                    </select>
+                </div>
 
-            <!-- Speed Section -->
-            <div class="section">
-                <div class="font-mono p-2 label">Speed</div>
-                <select class="input">
-                    <option value="Medium">Medium</option>
-                    <option value="Slow">Slow</option>
-                    <option value="Fast">Fast</option>
-                </select>
-            </div>
+                <!-- Speed Section -->
+                <div class="section">
+                    <div class="font-mono p-2 label">Speed</div>
+                    <select class="input" data-label="Speed">
+                        <option value="Medium">Medium</option>
+                        <option value="Slow">Slow</option>
+                        <option value="Fast">Fast</option>
+                    </select>
+                </div>
 
-            <!-- Theme Section -->
-            <div class="section">
-                <div class="font-mono p-2 label">Theme</div>
-                <select class="input">
-                    <option value="Light">Light</option>
-                    <option value="Dark">Dark</option>
-                </select>
+                <!-- Theme Section -->
+                <div class="section">
+                    <div class="font-mono p-2 label">Theme</div>
+                    <select class="input" data-label="Theme">
+                        <option value="Light">Light</option>
+                        <option value="Dark">Dark</option>
+                    </select>
+                </div>
+            </div>
+            <div class="flex justify-center mt-4">
+                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md generate">Generate</button>
             </div>
         </div>
-        <div class="flex justify-center mt-4">
-            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md">Generate</button>
-        </div>
     </div>
 
+    <!-- Display Screen -->
+    <div id="display-screen" class="hidden screen flex items-center justify-center">
+        <div id="generated-text" class="text-center"></div>
+    </div>
+
+    <script>
+        const generateButton = document.querySelector('.generate');
+
+        generateButton.addEventListener('click', handleGenerateClick);
+
+        function handleGenerateClick() {
+            // Get user input and options
+            const text = document.querySelector('.input[placeholder="Type here..."]').value;
+            const font = document.querySelector('.input[data-label="Font"]').value;
+            const color = document.querySelector('.input[data-label="Color"]').value;
+            const animation = document.querySelector('.input[data-label="Animation"]').value;
+            const speed = document.querySelector('.input[data-label="Speed"]').value;
+            const theme = document.querySelector('.input[data-label="Theme"]').value;
+
+            // Create a new element for the generated text
+            const textElement = document.getElementById('generated-text');
+            textElement.textContent = text;
+            textElement.style.color = color;
+            textElement.style.fontFamily = font;
+
+            // Add animation class based on selection
+            textElement.className = ''; // Clear previous classes
+            textElement.classList.add(`animation-${animation}`, `speed-${speed}`, `theme-${theme}`);
+
+            // Switch to the display screen
+            document.getElementById('form-screen').classList.add('hidden');
+            document.getElementById('display-screen').classList.remove('hidden');
+        }
+    </script>
 </body>
 </html>
