@@ -88,11 +88,17 @@ button:hover {
 /* Display screen styles */
 #display-screen {
     background-color: #f9fafb;
+    flex-direction: column;
 }
 
 #generated-text {
     font-size: 10vw;
     text-align: center;
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Example animation classes */
@@ -150,4 +156,21 @@ button:hover {
 .theme-Dark {
     color: white;
     background-color: black;
+}
+
+/* Responsive styles for vertical layout on phone screens */
+@media (max-width: 768px) {
+    #display-screen {
+        flex-direction: column;
+    }
+
+    #generated-text {
+        font-size: 20vw;
+        height: 80%;
+    }
+
+    .back {
+        width: 80%;
+        margin-top: 1rem;
+    }
 }
