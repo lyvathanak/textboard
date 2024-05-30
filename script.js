@@ -24,4 +24,5 @@ document.addEventListener('DOMContentLoaded', () => {
     backBtn.addEventListener('click', () => {
         displaySection.classList.add('hidden');
     });
+    
 });
