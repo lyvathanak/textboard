@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>TextBoard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Allura&family=Tangerine&family=Cookie&family=Herr+Von+Muellerhoff&family=Precious&family=Scribble&family=La+Sonnambula&family=Agatha&family=Self+Deception&family=Lemon+Jelly&family=Lovely+Coffee&family=Streetwear&family=Cadency&family=Bayshore&family=Retro+Vibes&family=Shalma&family=Maghrib&family=Tomatoes&family=Amsterdam&family=Make+Summer+Fun&family=Feeling+Lonely&family=Hamster+Script&family=Glory+Culture&family=Berrylicious&family=Shathika&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header bg-blue-100 p-4">
+        <div class="font-thin">the</div>
+        <div class="font-extrabold">TextBoard</div>
+    </div>
+    <div class="container mx-auto px-4 py-4 bg-gray-100 rounded-lg shadow-md">
+        <div class="form-grid p-4 space-y-4">
+            
+            <!-- Create Section -->
+            <div class="section">
+                <div class="font-mono p-2 label">Text</div>
+                <input type="text" id="text-input" class="input" placeholder="Type here...">
+            </div>
+
+            <!-- Font Section -->
+            <div class="section">
+                <div class="font-mono p-2 label">Font</div>
+                <select id="font-select" class="input">
+                    <option value="'Dancing Script', cursive">Dancing Script</option>
+                    <option value="'Allura', cursive">Allura</option>
+                    <option value="'Tangerine', cursive">Tangerine</option>
+                    <option value="'Cookie', cursive">Cookie</option>
+                    <option value="'Herr Von Muellerhoff', cursive">Herr Von Muellerhoff</option>
+                    <option value="'Precious', cursive">Precious</option>
+                    <option value="'Scribble', cursive">Scribble</option>
+                    <option value="'La Sonnambula', cursive">La Sonnambula</option>
+                    <option value="'Agatha', cursive">Agatha</option>
+                    <option value="'Self Deception', cursive">Self Deception</option>
+                    <option value="'Lemon Jelly', cursive">Lemon Jelly</option>
+                    <option value="'Lovely Coffee', cursive">Lovely Coffee</option>
+                    <option value="'Streetwear', cursive">Streetwear</option>
+                    <option value="'Cadency', cursive">Cadency</option>
+                    <option value="'Bayshore', cursive">Bayshore</option>
+                    <option value="'Retro Vibes', cursive">Retro Vibes</option>
+                    <option value="'Shalma', cursive">Shalma</option>
+                    <option value="'Maghrib', cursive">Maghrib</option>
+                    <option value="'Tomatoes', cursive">Tomatoes</option>
+                    <option value="'Amsterdam', cursive">Amsterdam</option>
+                    <option value="'Make Summer Fun', cursive">Make Summer Fun</option>
+                    <option value="'Feeling Lonely', cursive">Feeling Lonely</option>
+                    <option value="'Hamster Script', cursive">Hamster Script</option>
+                    <option value="'Glory Culture', cursive">Glory Culture</option>
+                    <option value="'Berrylicious', cursive">Berrylicious</option>
+                    <option value="'Shathika', cursive">Shathika</option>
+                </select>
+            </div>
+
+            <!-- Color Section -->
+            <div class="section">
+                <div class="font-mono p-2 label">Color</div>
+                <select id="color-select" class="input">
+                    <option value="Yellow">Yellow</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Red">Red</option>
+                    <option value="Green">Green</option>
+                    <option value="Black">Black</option>
+                </select>
+            </div>
+
+            <!-- Animation Section -->
+            <div class="section">
+                <div class="font-mono p-2 label">Animation</div>
+                <select id="animation-select" class="input">
+                    <option value="Still">Still</option>
+                    <option value="Left to Right">Left to Right</option>
+                    <option value="Right to Left">Right to Left</option>
+                    <option value="Up">Up</option>
+                </select>
+            </div>
+
+            <!-- Speed Section -->
+            <div class="section">
+                <div class="font-mono p-2 label">Speed</div>
+                <select id="speed-select" class="input">
+                    <option value="Medium">Medium</option>
+                    <option value="Slow">Slow</option>
+                    <option value="Fast">Fast</option>
+                </select>
+            </div>
+
+            <!-- Theme Section -->
+            <div class="section">
+                <div class="font-mono p-2 label">Theme</div>
+                <select id="theme-select" class="input">
+                    <option value="Light">Light</option>
+                    <option value="Dark">Dark</option>
+                </select>
+            </div>
+        </div>
+        <div class="flex justify-center mt-4">
+            <button id="generate-btn" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md">Generate</button>
+        </div>
+    </div>
+
+    <div id="display-section" class="hidden fixed inset-0 flex items-center justify-center bg-gray-800 text-white">
+        <div id="display-text" class="text-5xl"></div>
+        <button id="back-btn" class="absolute bottom-4 right-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md">Back</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
