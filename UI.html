@@ -151,17 +151,37 @@
                 }
                 ctx.fillStyle = color;
 
-                if (animation === 'Left to Right') {
-                    pos = (pos + 2) % canvas.width;
-                    ctx.fillText(text, pos, canvas.height / 2);
-                } else if (animation === 'Right to Left') {
-                    pos = (pos - 2 + canvas.width) % canvas.width;
-                    ctx.fillText(text, pos, canvas.height / 2);
-                } else if (animation === 'Up') {
-                    pos = (pos - 2 + canvas.height) % canvas.height;
-                    ctx.fillText(text, canvas.width / 2, pos);
+                const isPhoneScreen = window.innerWidth <= 768;
+                if (isPhoneScreen) {
+                    ctx.save();
+                    ctx.translate(canvas.width / 2, canvas.height / 2);
+                    ctx.rotate(-Math.PI / 2);
+                    if (animation === 'Left to Right') {
+                        pos = (pos + 2) % canvas.height;
+                        ctx.fillText(text, pos, 0);
+                    } else if (animation === 'Right to Left') {
+                        pos = (pos - 2 + canvas.height) % canvas.height;
+                        ctx.fillText(text, pos, 0);
+                    } else if (animation === 'Up') {
+                        pos = (pos - 2 + canvas.width) % canvas.width;
+                        ctx.fillText(text, 0, pos);
+                    } else {
+                        ctx.fillText(text, 0, 0);
+                    }
+                    ctx.restore();
                 } else {
-                    ctx.fillText(text, canvas.width / 2, canvas.height / 2);
+                    if (animation === 'Left to Right') {
+                        pos = (pos + 2) % canvas.width;
+                        ctx.fillText(text, pos, canvas.height / 2);
+                    } else if (animation === 'Right to Left') {
+                        pos = (pos - 2 + canvas.width) % canvas.width;
+                        ctx.fillText(text, pos, canvas.height / 2);
+                    } else if (animation === 'Up') {
+                        pos = (pos - 2 + canvas.height) % canvas.height;
+                        ctx.fillText(text, canvas.width / 2, pos);
+                    } else {
+                        ctx.fillText(text, canvas.width / 2, canvas.height / 2);
+                    }
                 }
                 animationId = requestAnimationFrame(drawText);
             };
