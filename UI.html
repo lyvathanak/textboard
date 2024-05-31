@@ -58,13 +58,24 @@
             <!-- Color Section -->
             <div class="section">
                 <div class="font-mono p-2 label">Color</div>
-                <select id="color-select" class="input">
-                    <option value="Yellow">Yellow</option>
-                    <option value="Blue">Blue</option>
-                    <option value="Red">Red</option>
-                    <option value="Green">Green</option>
-                    <option value="Black">Black</option>
-                </select>
+                <div class="color-picker" id="color-picker">
+                    <div class="selected-color">
+                        <span><div class="color-box" id="selected-color-box" style="background-color: yellow;"></div> <span id="selected-color-name">Yellow</span></span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="color-dropdown">
+                        <div class="color-option" data-color="Yellow"><div class="color-box" style="background-color: yellow;"></div> Yellow</div>
+                        <div class="color-option" data-color="Blue"><div class="color-box" style="background-color: blue;"></div> Blue</div>
+                        <div class="color-option" data-color="Red"><div class="color-box" style="background-color: red;"></div> Red</div>
+                        <div class="color-option" data-color="Green"><div class="color-box" style="background-color: green;"></div> Green</div>
+                        <div class="color-option" data-color="Black"><div class="color-box" style="background-color: black;"></div> Black</div>
+                        <div class="color-option" data-color="White"><div class="color-box" style="background-color: white;"></div> White</div>
+                        <div class="color-option" data-color="Purple"><div class="color-box" style="background-color: purple;"></div> Purple</div>
+                        <div class="color-option" data-color="Orange"><div class="color-box" style="background-color: orange;"></div> Orange</div>
+                        <div class="color-option" data-color="Pink"><div class="color-box" style="background-color: pink;"></div> Pink</div>
+                        <div class="color-option" data-color="Cyan"><div class="color-box" style="background-color: cyan;"></div> Cyan</div>
+                    </div>
+                </div>
             </div>
 
             <!-- Animation Section -->
