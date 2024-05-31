@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style3.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>TextBoard</title>
+</head>
+<body>
+    <div class="header bg-blue-100 p-4">
+        <div class="font-thin">the</div>
+        <div class="font-extrabold">TextBoard</div>
+    </div>
+    <div class="container mx-auto px-4 py-4 bg-gray-100 rounded-lg shadow-md">
+        <div class="form-grid p-4 space-y-4">
+            
+            <!-- Create Section -->
+            <div class="section">
+                <div class="font-mono p-2 label">Text</div>
+                <input type="text" id="text-input" class="input" placeholder="Type here...">
+            </div>
+
+            <!-- Font Section -->
+            <div class="section">
+                <div class="font-mono p-2 label">Font</div>
+                <select id="font-select" class="input">
+                    <option value="Figma Hand">Figma Hand</option>
+                    <option value="Lobster">Lobster Color</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                </select>
+            </div>
+
+            <!-- Color Section -->
+            <div class="section">
+                <div class="font-mono p-2 label">Color</div>
+                <select id="color-select" class="input">
+                    <option value="Yellow">Yellow</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Red">Red</option>
+                    <option value="Green">Green</option>
+                </select>
+            </div>
+
+            <!-- Animation Section -->
+            <div class="section">
+                <div class="font-mono p-2 label">Animation</div>
+                <select id="animation-select" class="input">
+                    <option value="Still">Still</option>
+                    <option value="Left to Right">Left to Right</option>
+                    <option value="Right to Left">Right to Left</option>
+                    <option value="Up">Up</option>
+                </select>
+            </div>
+
+            <!-- Speed Section -->
+            <div class="section">
+                <div class="font-mono p-2 label">Speed</div>
+                <select id="speed-select" class="input">
+                    <option value="Medium">Medium</option>
+                    <option value="Slow">Slow</option>
+                    <option value="Fast">Fast</option>
+                </select>
+            </div>
+<!-- Theme Section -->
+<div class="section">
+    <div class="font-mono p-2 label">Theme</div>
+    <div class="relative inline-block w-full">
+        <div id="dropdown-button" class="dropdown-button bg-white border p-2 rounded cursor-pointer flex items-center">
+            <span class="dropdown-text">Select Theme</span>
+        </div>
+        <div id="theme-grid" class="dropdown-content absolute hidden bg-white border rounded shadow-md mt-1 w-full grid grid-cols-5 gap-2 z-10">
+            <div></div>
+            <img src="image1.jpg" alt="Image 1" class="theme-option p-1 cursor-pointer" data-theme="image1.jpg">
+            <img src="image2.png" alt="Image 2" class="theme-option p-1 cursor-pointer" data-theme="image2.png">
+            <img src="image3.png" alt="Image 3" class="theme-option p-1 cursor-pointer" data-theme="image3.png">
+            <img src="image4.png" alt="Image 4" class="theme-option p-1 cursor-pointer" data-theme="image4.png">
+            <img src="image5.png" alt="Image 5" class="theme-option p-1 cursor-pointer" data-theme="image5.png">
+            <img src="image6.png" alt="Image 6" class="theme-option p-1 cursor-pointer" data-theme="image6.png">
+            <img src="image7.png" alt="Image 7" class="theme-option p-1 cursor-pointer" data-theme="image7.png">
+            <img src="image8.png" alt="Image 8" class="theme-option p-1 cursor-pointer" data-theme="image8.png">
+            <img src="image9.png" alt="Image 9" class="theme-option p-1 cursor-pointer" data-theme="image9.png">
+            <img src="image10.png" alt="Image 10" class="theme-option p-1 cursor-pointer" data-theme="image10.png">
+            <img src="image11.jpg" alt="Image 11" class="theme-option p-1 cursor-pointer" data-theme="image11.jpg">
+            <img src="image12.jpg" alt="Image 12" class="theme-option p-1 cursor-pointer" data-theme="image12.jpg">
+            <img src="image13.jpg" alt="Image 13" class="theme-option p-1 cursor-pointer" data-theme="image13.jpg">
+            <img src="image14.jpg" alt="Image 14" class="theme-option p-1 cursor-pointer" data-theme="image14.jpg">
+            <img src="image15.jpg" alt="Image 15" class="theme-option p-1 cursor-pointer" data-theme="image15.jpg">
+            <img src="image16.jpg" alt="Image 16" class="theme-option p-1 cursor-pointer" data-theme="image16.jpg">
+            <img src="image17.jpg" alt="Image 17" class="theme-option p-1 cursor-pointer" data-theme="image17.jpg">
+            <img src="image18.jpg" alt="Image 18" class="theme-option p-1 cursor-pointer" data-theme="image18.jpg">
+            <img src="image19.jpg" alt="Image 19" class="theme-option p-1 cursor-pointer" data-theme="image19.jpg">
+            <img src="image20.jpg" alt="Image 20" class="theme-option p-1 cursor-pointer" data-theme="image20.jpg">
+            <img src="image21.jpg" alt="Image 21" class="theme-option p-1 cursor-pointer" data-theme="image21.jpg">
+            <img src="image22.jpg" alt="Image 22" class="theme-option p-1 cursor-pointer" data-theme="image22.jpg">
+            <img src="image23.jpg" alt="Image 23" class="theme-option p-1 cursor-pointer" data-theme="image23.jpg">
+            <img src="image24.jpg" alt="Image 24" class="theme-option p-1 cursor-pointer" data-theme="image24.jpg">
+            <img src="image25.jpg" alt="Image 25" class="theme-option p-1 cursor-pointer" data-theme="image25.jpg">
+            <img src="image26.jpg" alt="Image 26" class="theme-option p-1 cursor-pointer" data-theme="image26.jpg">
+            <img src="image27.jpg" alt="Image 27" class="theme-option p-1 cursor-pointer" data-theme="image27.jpg">
+            <img src="image28.jpg" alt="Image 28" class="theme-option p-1 cursor-pointer" data-theme="image28.jpg">
+            <img src="image29.jpg" alt="Image 29" class="theme-option p-1 cursor-pointer" data-theme="image29.jpg">
+            <img src="image30.jpg" alt="Image 30" class="theme-option p-1 cursor-pointer" data-theme="image30.jpg">
+            <img src="image31.jpg" alt="Image 31" class="theme-option p-1 cursor-pointer" data-theme="image31.jpg">
+            <img src="image32.jpg" alt="Image 32" class="theme-option p-1 cursor-pointer" data-theme="image32.jpg">
+            <img src="image33.jpg" alt="Image 33" class="theme-option p-1 cursor-pointer" data-theme="image33.jpg">
+            <img src="image34.jpg" alt="Image 34" class="theme-option p-1 cursor-pointer" data-theme="image34.jpg">
+            <img src="image35.jpg" alt="Image 35" class="theme-option p-1 cursor-pointer" data-theme="image35.jpg">
+        </div>
+        <input type="hidden" id="theme-select" value="">
+    </div>
+</div>
+
+        </div>
+        <div class="flex justify-center mt-4">
+            <button id="generate-button" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md">Generate</button>
+        </div>
+    </div>
+
+    <!-- Display Section -->
+    <div id="display-section" class="hidden fixed inset-0 flex items-center justify-center">
+        <div id="display-text" class="text-2xl"></div>
+        <button id="back-btn" class="absolute bottom-4 right-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md">Back</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
