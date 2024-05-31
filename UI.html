@@ -138,6 +138,16 @@
             // Clear previous animation
             cancelAnimationFrame(animationId);
 
+            // Set speed increments
+            let increment;
+            if (speed === 'Slow') {
+                increment = 0.5;
+            } else if (speed === 'Medium') {
+                increment = 2;
+            } else if (speed === 'Fast') {
+                increment = 5;
+            }
+
             // Draw text with animation
             let pos = 0;
             const drawText = () => {
@@ -157,13 +167,13 @@
                     ctx.translate(canvas.width / 2, canvas.height / 2);
                     ctx.rotate(-Math.PI / 2);
                     if (animation === 'Left to Right') {
-                        pos = (pos + 2) % canvas.height;
+                        pos = (pos + increment) % canvas.height;
                         ctx.fillText(text, pos, 0);
                     } else if (animation === 'Right to Left') {
-                        pos = (pos - 2 + canvas.height) % canvas.height;
+                        pos = (pos - increment + canvas.height) % canvas.height;
                         ctx.fillText(text, pos, 0);
                     } else if (animation === 'Up') {
-                        pos = (pos - 2 + canvas.width) % canvas.width;
+                        pos = (pos - increment + canvas.width) % canvas.width;
                         ctx.fillText(text, 0, pos);
                     } else {
                         ctx.fillText(text, 0, 0);
@@ -171,13 +181,13 @@
                     ctx.restore();
                 } else {
                     if (animation === 'Left to Right') {
-                        pos = (pos + 2) % canvas.width;
+                        pos = (pos + increment) % canvas.width;
                         ctx.fillText(text, pos, canvas.height / 2);
                     } else if (animation === 'Right to Left') {
-                        pos = (pos - 2 + canvas.width) % canvas.width;
+                        pos = (pos - increment + canvas.width) % canvas.width;
                         ctx.fillText(text, pos, canvas.height / 2);
                     } else if (animation === 'Up') {
-                        pos = (pos - 2 + canvas.height) % canvas.height;
+                        pos = (pos - increment + canvas.height) % canvas.height;
                         ctx.fillText(text, canvas.width / 2, pos);
                     } else {
                         ctx.fillText(text, canvas.width / 2, canvas.height / 2);
