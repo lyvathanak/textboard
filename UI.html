@@ -83,7 +83,7 @@
 
     <!-- Display Screen -->
     <div id="display-screen" class="hidden screen flex flex-col items-center justify-center">
-        <div id="generated-text" class="text-center"></div>
+        <canvas id="text-canvas" width="800" height="400"></canvas>
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md mt-4 back">Back</button>
     </div>
 
@@ -94,6 +94,8 @@
         generateButton.addEventListener('click', handleGenerateClick);
         backButton.addEventListener('click', handleBackClick);
 
+        let animationId;
+
         function handleGenerateClick() {
             // Get user input and options
             const text = document.querySelector('.input[placeholder="Type here..."]').value;
@@ -103,15 +105,57 @@
             const speed = document.querySelector('.input[data-label="Speed"]').value;
             const theme = document.querySelector('.input[data-label="Theme"]').value;
 
-            // Create a new element for the generated text
-            const textElement = document.getElementById('generated-text');
-            textElement.textContent = text;
-            textElement.style.color = color;
-            textElement.style.fontFamily = font;
+            // Get canvas context
+            const canvas = document.getElementById('text-canvas');
+            const ctx = canvas.getContext('2d');
 
-            // Add animation class based on selection
-            textElement.className = ''; // Clear previous classes
-            textElement.classList.add(`animation-${animation}`, `speed-${speed}`, `theme-${theme}`);
+            // Set theme
+            if (theme === 'Dark') {
+                ctx.fillStyle = 'black';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            } else {
+                ctx.fillStyle = 'white';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
+
+            // Set text styles
+            ctx.font = `48px ${font}`;
+            ctx.fillStyle = color;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+
+            // Clear previous animation
+            cancelAnimationFrame(animationId);
+
+            // Draw text with animation
+            let pos = 0;
+            const drawText = () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                if (theme === 'Dark') {
+                    ctx.fillStyle = 'black';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                } else {
+                    ctx.fillStyle = 'white';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                }
+                ctx.fillStyle = color;
+
+                if (animation === 'Left to Right') {
+                    pos = (pos + 2) % canvas.width;
+                    ctx.fillText(text, pos, canvas.height / 2);
+                } else if (animation === 'Right to Left') {
+                    pos = (pos - 2 + canvas.width) % canvas.width;
+                    ctx.fillText(text, pos, canvas.height / 2);
+                } else if (animation === 'Up') {
+                    pos = (pos - 2 + canvas.height) % canvas.height;
+                    ctx.fillText(text, canvas.width / 2, pos);
+                } else {
+                    ctx.fillText(text, canvas.width / 2, canvas.height / 2);
+                }
+                animationId = requestAnimationFrame(drawText);
+            };
+
+            drawText();
 
             // Switch to the display screen
             document.getElementById('form-screen').classList.add('hidden');
@@ -119,6 +163,9 @@
         }
 
         function handleBackClick() {
+            // Cancel the animation
+            cancelAnimationFrame(animationId);
+
             // Switch back to the form screen
             document.getElementById('display-screen').classList.add('hidden');
             document.getElementById('form-screen').classList.remove('hidden');
