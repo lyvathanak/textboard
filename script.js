@@ -1,4 +1,31 @@
 
+document.addEventListener('DOMContentLoaded', () => {
+    const colorPicker = document.getElementById('color-picker');
+    const selectedColor = colorPicker.querySelector('.selected-color');
+    const colorDropdown = colorPicker.querySelector('.color-dropdown');
+    const selectedColorBox = document.getElementById('selected-color-box');
+    const selectedColorName = document.getElementById('selected-color-name');
+
+    selectedColor.addEventListener('click', () => {
+        colorDropdown.style.display = colorDropdown.style.display === 'none' ? 'block' : 'none';
+    });
+    colorDropdown.addEventListener('click', (event) => {
+        const colorOption = event.target.closest('.color-option');
+        if (colorOption) {
+            const colorName = colorOption.getAttribute('data-color');
+            selectedColorBox.style.backgroundColor = colorName.toLowerCase();
+            selectedColorName.textContent = colorName;
+            colorDropdown.style.display = 'none';
+        }
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!colorPicker.contains(event.target)) {
+            colorDropdown.style.display = 'none';
+        }
+    });
+});
+
 document.getElementById('generate-btn').addEventListener('click', function() {
     const text = document.getElementById('text-input').value;
     const font = document.getElementById('font-select').value;
@@ -26,35 +53,8 @@ document.getElementById('generate-btn').addEventListener('click', function() {
     document.querySelector('.container').classList.add('hidden');
 });
 
+
 document.getElementById('back-btn').addEventListener('click', function() {
     document.getElementById('display-section').classList.add('hidden');
     document.querySelector('.container').classList.remove('hidden');
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const colorPicker = document.getElementById('color-picker');
-    const selectedColor = colorPicker.querySelector('.selected-color');
-    const colorDropdown = colorPicker.querySelector('.color-dropdown');
-    const selectedColorBox = document.getElementById('selected-color-box');
-    const selectedColorName = document.getElementById('selected-color-name');
-
-    selectedColor.addEventListener('click', () => {
-        colorDropdown.style.display = colorDropdown.style.display === 'none' ? 'block' : 'none';
-    });
-
-    colorDropdown.addEventListener('click', (event) => {
-        const colorOption = event.target.closest('.color-option');
-        if (colorOption) {
-            const colorName = colorOption.getAttribute('data-color');
-            selectedColorBox.style.backgroundColor = colorName.toLowerCase();
-            selectedColorName.textContent = colorName;
-            colorDropdown.style.display = 'none';
-        }
-    });
-
-    document.addEventListener('click', (event) => {
-        if (!colorPicker.contains(event.target)) {
-            colorDropdown.style.display = 'none';
-        }
-    });
 });
