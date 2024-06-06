@@ -5,80 +5,235 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Allura&family=Tangerine&family=Cookie&family=Herr+Von+Muellerhoff&family=Precious&family=Scribble&family=Agatha&family=Self+Deception&family=Lovely+Coffee&family=Shalma&family=Maghrib&family=Tomatoes&family=Amsterdam&family=Make+Summer+Fun&family=Feeling+Lonely&family=Shathika&family=Great+Vibes&family=Pacifico&family=Satisfy&family=Yellowtail&family=Kaushan+Script&family=Italianno&family=Pacifico&family=Courgette&family=Sacramento&family=Pinyon+Script&display=swap" rel="stylesheet">
     <title>TextBoard</title>
 </head>
 <body>
-    <div class="header bg-blue-100 p-4">
-        <div class="font-thin">the</div>
-        <div class="font-extrabold">TextBoard</div>
-    </div>
-    <div class="container mx-auto px-4 py-4 bg-gray-100 rounded-lg shadow-md">
-        <div class="form-grid p-4 space-y-4">
-            
-            <!-- Create Section -->
-            <div class="section">
-                <div class="font-mono p-2 label">Text</div>
-                <input type="text" class="input" placeholder="Type here...">
-            </div>
-
-            <!-- Font Section -->
-            <div class="section">
-                <div class="font-mono p-2 label">Font</div>
-                <select class="input">
-                    <option value="Figma Hand">Figma Hand</option>
-                    <option value="Lobster">Lobster Color</option>
-                    <option value="Arial">Arial</option>
-                    <option value="Verdana">Verdana</option>
-                    <option value="Times New Roman">Times New Roman</option>
-                </select>
-            </div>
-
-            <!-- Color Section -->
-            <div class="section">
-                <div class="font-mono p-2 label">Color</div>
-                <select class="input">
-                    <option value="Yellow">Yellow</option>
-                    <option value="Blue">Blue</option>
-                    <option value="Red">Red</option>
-                    <option value="Green">Green</option>
-                </select>
-            </div>
-
-            <!-- Animation Section -->
-            <div class="section">
-                <div class="font-mono p-2 label">Animation</div>
-                <select class="input">
-                    <option value="Still">Still</option>
-                    <option value="Left to Right">Left to Right</option>
-                    <option value="Right to Left">Right to Left</option>
-                    <option value="Up">Up</option>
-                </select>
-            </div>
-
-            <!-- Speed Section -->
-            <div class="section">
-                <div class="font-mono p-2 label">Speed</div>
-                <select class="input">
-                    <option value="Medium">Medium</option>
-                    <option value="Slow">Slow</option>
-                    <option value="Fast">Fast</option>
-                </select>
-            </div>
-
-            <!-- Theme Section -->
-            <div class="section">
-                <div class="font-mono p-2 label">Theme</div>
-                <select class="input">
-                    <option value="Light">Light</option>
-                    <option value="Dark">Dark</option>
-                </select>
-            </div>
+    <!-- Input Form Screen -->
+    <div id="form-screen" class="screen">
+        <div class="header bg-blue-100 p-4">
+            <div class="font-thin">the</div>
+            <div class="font-extrabold">TextBoard</div>
         </div>
-        <div class="flex justify-center mt-4">
-            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md">Generate</button>
+        <div class="container mx-auto px-4 py-4 bg-gray-100 rounded-lg shadow-md">
+            <div class="form-grid p-4 space-y-4">
+                <!-- Create Section -->
+                <div class="section">
+                    <div class="font-mono p-2 label">Text</div>
+                    <input type="text" class="input" placeholder="Type here...">
+                </div>
+
+                <!-- Font Section -->
+                <div class="section">
+                    <div class="font-mono p-2 label">Font</div>
+                    <select class="input" data-label="Font">
+                        <option value="'Dancing Script', cursive" style="font-family: 'Dancing Script', cursive;">Dancing Script</option>
+                        <option value="'Allura', cursive" style="font-family: 'Allura', cursive;">Allura</option>
+                        <option value="'Tangerine', cursive" style="font-family: 'Tangerine', cursive;">Tangerine</option>
+                        <!-- Add remaining font options here -->
+                    </select>
+                </div>
+
+                <!-- Color Section -->
+                <div class="section">
+                    <div class="font-mono p-2 label">Color</div>
+                    <select class="input" data-label="Color">
+                        <option value="Yellow">Yellow</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Red">Red</option>
+                        <option value="Green">Green</option>
+                        <option value="Black">Black</option>
+                        <option value="White">White</option>
+                        <option value="Purple">Purple</option>
+                        <option value="Orange">Orange</option>
+                        <option value="Pink">Pink</option>
+                        <option value="Cyan">Cyan</option>
+                    </select>
+                </div>
+                
+                <!-- Animation Section -->
+                <div class="section">
+                    <div class="font-mono p-2 label">Animation</div>
+                    <select class="input" data-label="Animation">
+                        <option value="Still">Still</option>
+                        <option value="Left to Right">Left to Right</option>
+                        <option value="Right to Left">Right to Left</option>
+                        <option value="Up">Up</option>
+                    </select>
+                </div>
+
+                <!-- Speed Section -->
+                <div class="section">
+                    <div class="font-mono p-2 label">Speed</div>
+                    <select class="input" data-label="Speed">
+                        <option value="Medium">Medium</option>
+                        <option value="Slow">Slow</option>
+                        <option value="Fast">Fast</option>
+                    </select>
+                </div>
+
+                <!-- Theme Section -->
+                <div class="section">
+                    <div class="font-mono p-2 label">Theme</div>
+                    <div class="relative inline-block w-full">
+                        <div id="dropdown-button" class="dropdown-button bg-white border p-2 rounded cursor-pointer flex items-center">
+                            <span class="dropdown-text">Select Theme</span>
+                        </div>
+                        <div id="theme-grid" class="dropdown-content absolute hidden bg-white border rounded shadow-md mt-1 w-full grid grid-cols-5 gap-2 z-10">
+                            <img src="pic/image2.png" alt="Image 2" class="theme-option p-1 cursor-pointer" data-theme="image2.png">
+                            <img src="pic/image3.png" alt="Image 3" class="theme-option p-1 cursor-pointer" data-theme="image3.png">
+                            <img src="pic/image4.png" alt="Image 4" class="theme-option p-1 cursor-pointer" data-theme="image4.png">
+                            <img src="pic/image5.png" alt="Image 5" class="theme-option p-1 cursor-pointer" data-theme="image5.png">
+                            <img src="pic/image6.png" alt="Image 6" class="theme-option p-1 cursor-pointer" data-theme="image6.png">
+                            <img src="pic/image7.png" alt="Image 7" class="theme-option p-1 cursor-pointer" data-theme="image7.png">
+                            <img src="pic/image8.png" alt="Image 8" class="theme-option p-1 cursor-pointer" data-theme="image8.png">
+                            <img src="pic/image9.png" alt="Image 9" class="theme-option p-1 cursor-pointer" data-theme="image9.png">
+                            <img src="pic/image10.png" alt="Image 10" class="theme-option p-1 cursor-pointer" data-theme="image10.png">
+                            <!-- Add remaining image options here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center mt-4">
+                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md generate">Generate</button>
+            </div>
         </div>
     </div>
     <script src="java.js"></script>
 
+    <!-- Display Screen -->
+    <div id="display-screen" class="hidden screen flex flex-col items-center justify-center">
+        <canvas id="text-canvas"></canvas>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md back">Back</button>
+    </div>
+
+    <script>
+        const generateButton = document.querySelector('.generate');
+        const backButton = document.querySelector('.back');
+
+        generateButton.addEventListener('click', handleGenerateClick);
+        backButton.addEventListener('click', handleBackClick);
+
+        let animationId;
+
+        function resizeCanvas() {
+            const canvas = document.getElementById('text-canvas');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function handleGenerateClick() {
+            const text = document.querySelector('.input[type="text"]').value;
+            const font = document.querySelector('.input[data-label="Font"]').value;
+            const color = document.querySelector('.input[data-label="Color"]').value;
+            const animation = document.querySelector('.input[data-label="Animation"]').value;
+            const speed = document.querySelector('.input[data-label="Speed"]').value;
+            const theme = document.querySelector('.theme-option.selected')?.getAttribute('data-theme') || 'default.jpg';
+
+            if (!text) {
+                alert('Please enter text.');
+                return;
+            }
+
+            document.getElementById('form-screen').classList.add('hidden');
+            document.getElementById('display-screen').classList.remove('hidden');
+
+            const canvas = document.getElementById('text-canvas');
+            resizeCanvas();
+            const ctx = canvas.getContext('2d');
+            resizeCanvas();
+
+            // Set theme
+            if (theme === 'Dark') {
+                ctx.fillStyle = 'black';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            } else {
+                ctx.fillStyle = 'white';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
+
+            // Set text styles
+            const fontSize = Math.min(canvas.width, canvas.height) * 0.8;
+            ctx.font = `${fontSize}px ${font}`;
+            ctx.fillStyle = color;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+
+            // Clear previous animation
+            cancelAnimationFrame(animationId);
+
+            let dx = 2;
+            let dy = 2;
+
+            switch (speed) {
+                case 'Slow':
+                    dx = dy = 1;
+                    break;
+                case 'Medium':
+                    dx = dy = 2;
+                    break;
+                case 'Fast':
+                    dx = dy = 4;
+                    break;
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+
+                ctx.font = `50px ${font}`;
+                ctx.fillStyle = color;
+
+                ctx.fillText(text, x, y);
+
+                if (direction === 'horizontal') {
+                    if (alignment === 'right') {
+                        x += dx;
+                        if (x > canvas.width) x = -ctx.measureText(text).width;
+                    } else if (alignment === 'left') {
+                        x -= dx;
+                        if (x < -ctx.measureText(text).width) x = canvas.width;
+                    }
+                } else if (direction === 'vertical') {
+                    if (alignment === 'up') {
+                        y -= dy;
+                        if (y < 0) y = canvas.height;
+                    }
+                }
+
+                animationId = requestAnimationFrame(draw);
+            }
+
+            draw();
+        }
+
+        function handleBackClick() {
+            document.getElementById('display-screen').classList.add('hidden');
+            document.getElementById('form-screen').classList.remove('hidden');
+            cancelAnimationFrame(animationId);
+        }
+
+        document.getElementById('dropdown-button').addEventListener('click', function () {
+            document.getElementById('theme-grid').classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.theme-option').forEach(option => {
+            option.addEventListener('click', function () {
+                document.querySelectorAll('.theme-option').forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                document.querySelector('.dropdown-text').innerText = this.alt;
+                document.getElementById('theme-grid').classList.add('hidden');
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Ensure the color is picked correctly from the dropdown
+            const colorDropdown = document.querySelector('.input[data-label="Color"]');
+            colorDropdown.addEventListener('change', function () {
+                const selectedColor = colorDropdown.options[colorDropdown.selectedIndex].value;
+                document.querySelector('.input[data-label="Color"]').value = selectedColor;
+            });
+        });
+    </script>
 </body>
 </html>
