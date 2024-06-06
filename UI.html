@@ -5,119 +5,345 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>TextBoard</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Allura&family=Tangerine&family=Cookie&family=Herr+Von+Muellerhoff&family=Precious&family=Scribble&family=Agatha&family=Self+Deception&family=Lovely+Coffee&family=Shalma&family=Maghrib&family=Tomatoes&family=Amsterdam&family=Make+Summer+Fun&family=Feeling+Lonely&family=Shathika&family=Great+Vibes&family=Pacifico&family=Satisfy&family=Yellowtail&family=Kaushan+Script&family=Italianno&family=Pacifico&family=Courgette&family=Sacramento&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <title>TextBoard</title>
 </head>
 <body>
-    <div class="header bg-blue-100 p-4">
-        <div class="font-thin">the</div>
-        <div class="font-extrabold">TextBoard</div>
-    </div>
-    <div class="container mx-auto px-4 py-4 bg-gray-100 rounded-lg shadow-md">
-        <div class="form-grid p-4 space-y-4">
-            
-            <!-- Create Section -->
-            <div class="section">
-                <div class="font-mono p-2 label">Text</div>
-                <input type="text" id="text-input" class="input" placeholder="Type here...">
-            </div>
+    <!-- Input Form Screen -->
+    <div id="form-screen" class="screen">
+        <div class="header bg-blue-100 p-4">
+            <div class="font-thin">the</div>
+            <div class="font-extrabold">TextBoard</div>
+        </div>
+        <div class="container mx-auto px-4 py-4 bg-gray-100 rounded-lg shadow-md">
+            <div class="form-grid p-4 space-y-4">
+                <!-- Create Section -->
+                <div class="section">
+                    <div class="font-mono p-2 label">Text</div>
+                    <input type="text" class="input" placeholder="Type here...">
+                </div>
 
-            <!-- Font Section -->
-            <div class="section">
-                <div class="font-mono p-2 label">Font</div>
-                <select id="font-select" class="input">
-                    <option value="'Dancing Script', cursive" style="font-family: 'Dancing Script', cursive;">Dancing Script</option>
-                    <option value="'Allura', cursive" style="font-family: 'Allura', cursive;">Allura</option>
-                    <option value="'Tangerine', cursive" style="font-family: 'Tangerine', cursive;">Tangerine</option>
-                    <option value="'Cookie', cursive" style="font-family: 'Cookie', cursive;">Cookie</option>
-                    <option value="'Herr Von Muellerhoff', cursive" style="font-family: 'Herr Von Muellerhoff', cursive;">Herr Von Muellerhoff</option>
-                    <option value="'Precious', cursive" style="font-family: 'Precious', cursive;">Precious</option>
-                    <option value="'Scribble', cursive" style="font-family: 'Scribble', cursive;">Scribble</option>
-                    <option value="'Agatha', cursive" style="font-family: 'Agatha', cursive;">Agatha</option>
-                    <option value="'Self Deception', cursive" style="font-family: 'Self Deception', cursive;">Self Deception</option>
-                    <option value="'Lovely Coffee', cursive" style="font-family: 'Lovely Coffee', cursive;">Lovely Coffee</option>
-                    <option value="'Shalma', cursive" style="font-family: 'Shalma', cursive;">Shalma</option>
-                    <option value="'Maghrib', cursive" style="font-family: 'Maghrib', cursive;">Maghrib</option>
-                    <option value="'Tomatoes', cursive" style="font-family: 'Tomatoes', cursive;">Tomatoes</option>
-                    <option value="'Amsterdam', cursive" style="font-family: 'Amsterdam', cursive;">Amsterdam</option>
-                    <option value="'Make Summer Fun', cursive" style="font-family: 'Make Summer Fun', cursive;">Make Summer Fun</option>
-                    <option value="'Feeling Lonely', cursive" style="font-family: 'Feeling Lonely', cursive;">Feeling Lonely</option>
-                    <option value="'Shathika', cursive" style="font-family: 'Shathika', cursive;">Shathika</option>
-                    <option value="'Great Vibes', cursive" style="font-family: 'Great Vibes', cursive;">Great Vibes</option>
-                    <option value="'Pacifico', cursive" style="font-family: 'Pacifico', cursive;">Pacifico</option>
-                    <option value="'Satisfy', cursive" style="font-family: 'Satisfy', cursive;">Satisfy</option>
-                    <option value="'Yellowtail', cursive" style="font-family: 'Yellowtail', cursive;">Yellowtail</option>
-                    <option value="'Kaushan Script', cursive" style="font-family: 'Kaushan Script', cursive;">Kaushan Script</option>
-                    <option value="'Italianno', cursive" style="font-family: 'Italianno', cursive;">Italianno</option>
-                    <option value="'Courgette', cursive" style="font-family: 'Courgette', cursive;">Courgette</option>
-                    <option value="'Sacramento', cursive" style="font-family: 'Sacramento', cursive;">Sacramento</option>
-                    <option value="'Pinyon Script', cursive" style="font-family: 'Pinyon Script', cursive;">Pinyon Script</option>
-                </select>
-            </div>
+                <!-- Font Section -->
+                <div class="section">
+                    <div class="font-mono p-2 label">Font</div>
+                    <select class="input" data-label="Font">
+                        <option value="'Dancing Script', cursive" style="font-family: 'Dancing Script', cursive;">Dancing Script</option>
+                        <option value="'Allura', cursive" style="font-family: 'Allura', cursive;">Allura</option>
+                        <option value="'Tangerine', cursive" style="font-family: 'Tangerine', cursive;">Tangerine</option>
+                        <option value="'Cookie', cursive" style="font-family: 'Cookie', cursive;">Cookie</option>
+                        <option value="'Herr Von Muellerhoff', cursive" style="font-family: 'Herr Von Muellerhoff', cursive;">Herr Von Muellerhoff</option>
+                        <option value="'Precious', cursive" style="font-family: 'Precious', cursive;">Precious</option>
+                        <option value="'Scribble', cursive" style="font-family: 'Scribble', cursive;">Scribble</option>
+                        <option value="'Agatha', cursive" style="font-family: 'Agatha', cursive;">Agatha</option>
+                        <option value="'Self Deception', cursive" style="font-family: 'Self Deception', cursive;">Self Deception</option>
+                        <option value="'Lovely Coffee', cursive" style="font-family: 'Lovely Coffee', cursive;">Lovely Coffee</option>
+                        <option value="'Shalma', cursive" style="font-family: 'Shalma', cursive;">Shalma</option>
+                        <option value="'Maghrib', cursive" style="font-family: 'Maghrib', cursive;">Maghrib</option>
+                        <option value="'Tomatoes', cursive" style="font-family: 'Tomatoes', cursive;">Tomatoes</option>
+                        <option value="'Amsterdam', cursive" style="font-family: 'Amsterdam', cursive;">Amsterdam</option>
+                        <option value="'Make Summer Fun', cursive" style="font-family: 'Make Summer Fun', cursive;">Make Summer Fun</option>
+                        <option value="'Feeling Lonely', cursive" style="font-family: 'Feeling Lonely', cursive;">Feeling Lonely</option>
+                        <option value="'Shathika', cursive" style="font-family: 'Shathika', cursive;">Shathika</option>
+                        <option value="'Great Vibes', cursive" style="font-family: 'Great Vibes', cursive;">Great Vibes</option>
+                        <option value="'Pacifico', cursive" style="font-family: 'Pacifico', cursive;">Pacifico</option>
+                        <option value="'Satisfy', cursive" style="font-family: 'Satisfy', cursive;">Satisfy</option>
+                        <option value="'Yellowtail', cursive" style="font-family: 'Yellowtail', cursive;">Yellowtail</option>
+                        <option value="'Kaushan Script', cursive" style="font-family: 'Kaushan Script', cursive;">Kaushan Script</option>
+                        <option value="'Italianno', cursive" style="font-family: 'Italianno', cursive;">Italianno</option>
+                        <option value="'Courgette', cursive" style="font-family: 'Courgette', cursive;">Courgette</option>
+                        <option value="'Sacramento', cursive" style="font-family: 'Sacramento', cursive;">Sacramento</option>
+                        <option value="'Pinyon Script', cursive" style="font-family: 'Pinyon Script', cursive;">Pinyon Script</option>
+                    </select>
+                </div>
 
-            <!-- Color Section -->
-            <div class="section">
-                <div class="font-mono p-2 label">Color</div>
-                <div class="color-picker" id="color-picker">
-                    <div class="selected-color">
-                        <span><div class="color-box" id="selected-color-box" style="background-color: yellow;"></div> <span id="selected-color-name">Yellow</span></span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                <!-- Color Section -->
+                <div class="section">
+                    <div class="font-mono p-2 label">Color</div>
+                    <div class="color-picker" id="color-picker">
+                        <div class="selected-color">
+                            <span>
+                                <div class="color-box" id="selected-color-box" style="background-color: yellow;"></div>
+                                <span id="selected-color-name">Yellow</span>
+                            </span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <div class="color-dropdown hidden">
+                            <div class="color-option" data-color="Yellow"><div class="color-box" style="background-color: yellow;"></div> Yellow</div>
+                            <div class="color-option" data-color="Blue"><div class="color-box" style="background-color: blue;"></div> Blue</div>
+                            <div class="color-option" data-color="Red"><div class="color-box" style="background-color: red;"></div> Red</div>
+                            <div class="color-option" data-color="Green"><div class="color-box" style="background-color: green;"></div> Green</div>
+                            <div class="color-option" data-color="Black"><div class="color-box" style="background-color: black;"></div> Black</div>
+                            <div class="color-option" data-color="White"><div class="color-box" style="background-color: white;"></div> White</div>
+                            <div class="color-option" data-color="Purple"><div class="color-box" style="background-color: purple;"></div> Purple</div>
+                            <div class="color-option" data-color="Orange"><div class="color-box" style="background-color: orange;"></div> Orange</div>
+                            <div class="color-option" data-color="Pink"><div class="color-box" style="background-color: pink;"></div> Pink</div>
+                            <div class="color-option" data-color="Cyan"><div class="color-box" style="background-color: cyan;"></div> Cyan</div>
+                        </div>
                     </div>
-                    <div class="color-dropdown">
-                        <div class="color-option" data-color="Yellow"><div class="color-box" style="background-color: yellow;"></div> Yellow</div>
-                        <div class="color-option" data-color="Blue"><div class="color-box" style="background-color: blue;"></div> Blue</div>
-                        <div class="color-option" data-color="Red"><div class="color-box" style="background-color: red;"></div> Red</div>
-                        <div class="color-option" data-color="Green"><div class="color-box" style="background-color: green;"></div> Green</div>
-                        <div class="color-option" data-color="Black"><div class="color-box" style="background-color: black;"></div> Black</div>
-                        <div class="color-option" data-color="White"><div class="color-box" style="background-color: white;"></div> White</div>
-                        <div class="color-option" data-color="Purple"><div class="color-box" style="background-color: purple;"></div> Purple</div>
-                        <div class="color-option" data-color="Orange"><div class="color-box" style="background-color: orange;"></div> Orange</div>
-                        <div class="color-option" data-color="Pink"><div class="color-box" style="background-color: pink;"></div> Pink</div>
-                        <div class="color-option" data-color="Cyan"><div class="color-box" style="background-color: cyan;"></div> Cyan</div>
+                </div>
+
+                <!-- Animation Section -->
+                <div class="section">
+                    <div class="font-mono p-2 label">Animation</div>
+                    <select class="input" data-label="Animation">
+                        <option value="Still">Still</option>
+                        <option value="Left to Right">Left to Right</option>
+                        <option value="Right to Left">Right to Left</option>
+                        <option value="Up">Up</option>
+                    </select>
+                </div>
+
+                <!-- Speed Section -->
+                <div class="section">
+                    <div class="font-mono p-2 label">Speed</div>
+                    <select class="input" data-label="Speed">
+                        <option value="Medium">Medium</option>
+                        <option value="Slow">Slow</option>
+                        <option value="Fast">Fast</option>
+                    </select>
+                </div>
+
+                <!-- Theme Section -->
+                <div class="section">
+                    <div class="font-mono p-2 label">Theme</div>
+                    <div class="relative inline-block w-full">
+                        <div id="dropdown-button" class="dropdown-button bg-white border p-2 rounded cursor-pointer flex items-center">
+                            <span class="dropdown-text">Select Theme</span>
+                        </div>
+                        <div id="theme-grid" class="dropdown-content absolute hidden bg-white border rounded shadow-md mt-1 w-full grid grid-cols-5 gap-2 z-10">
+                            <img src="pic/image2.png" alt="Image 2" class="theme-option p-1 cursor-pointer" data-theme="image2.png">
+                            <img src="pic/image3.png" alt="Image 3" class="theme-option p-1 cursor-pointer" data-theme="image3.png">
+                            <img src="pic/image4.png" alt="Image 4" class="theme-option p-1 cursor-pointer" data-theme="image4.png">
+                            <img src="pic/image5.png" alt="Image 5" class="theme-option p-1 cursor-pointer" data-theme="image5.png">
+                            <img src="pic/image5.png" alt="Image 5" class="theme-option p-1 cursor-pointer" data-theme="image5.png">
+                            <img src="pic/image6.png" alt="Image 6" class="theme-option p-1 cursor-pointer" data-theme="image6.png">
+                            <img src="pic/image7.png" alt="Image 7" class="theme-option p-1 cursor-pointer" data-theme="image7.png">
+                            <img src="pic/image8.png" alt="Image 8" class="theme-option p-1 cursor-pointer" data-theme="image8.png">
+                            <img src="pic/image9.png" alt="Image 9" class="theme-option p-1 cursor-pointer" data-theme="image9.png">
+                            <img src="pic/image10.png" alt="Image 10" class="theme-option p-1 cursor-pointer" data-theme="image10.png">
+                            <img src="pic/image11.jpg" alt="Image 11" class="theme-option p-1 cursor-pointer" data-theme="image11.jpg">
+                            <img src="pic/image12.jpg" alt="Image 12" class="theme-option p-1 cursor-pointer" data-theme="image12.jpg">
+                            <img src="pic/image13.jpg" alt="Image 13" class="theme-option p-1 cursor-pointer" data-theme="image13.jpg">
+                            <img src="pic/image14.jpg" alt="Image 14" class="theme-option p-1 cursor-pointer" data-theme="image14.jpg">
+                            <img src="pic/image15.jpg" alt="Image 15" class="theme-option p-1 cursor-pointer" data-theme="image15.jpg">
+                            <img src="pic/image16.jpg" alt="Image 16" class="theme-option p-1 cursor-pointer" data-theme="image16.jpg">
+                            <img src="pic/image17.jpg" alt="Image 17" class="theme-option p-1 cursor-pointer" data-theme="image17.jpg">
+                            <img src="pic/image18.jpg" alt="Image 18" class="theme-option p-1 cursor-pointer" data-theme="image18.jpg">
+                            <img src="pic/image19.jpg" alt="Image 19" class="theme-option p-1 cursor-pointer" data-theme="image19.jpg">
+                            <img src="pic/image20.jpg" alt="Image 20" class="theme-option p-1 cursor-pointer" data-theme="image20.jpg">
+                            <img src="pic/image21.jpg" alt="Image 21" class="theme-option p-1 cursor-pointer" data-theme="image21.jpg">
+                            <img src="pic/image22.jpg" alt="Image 22" class="theme-option p-1 cursor-pointer" data-theme="image22.jpg">
+                            <img src="pic/image23.jpg" alt="Image 23" class="theme-option p-1 cursor-pointer" data-theme="image23.jpg">
+                            <img src="pic/image24.jpg" alt="Image 24" class="theme-option p-1 cursor-pointer" data-theme="image24.jpg">
+                            <img src="pic/image25.jpg" alt="Image 25" class="theme-option p-1 cursor-pointer" data-theme="image25.jpg">
+                            <img src="pic/image26.jpg" alt="Image 26" class="theme-option p-1 cursor-pointer" data-theme="image26.jpg">
+                            <img src="pic/image27.jpg" alt="Image 27" class="theme-option p-1 cursor-pointer" data-theme="image27.jpg">
+                            <img src="pic/image28.jpg" alt="Image 28" class="theme-option p-1 cursor-pointer" data-theme="image28.jpg">
+                            <img src="pic/image29.jpg" alt="Image 29" class="theme-option p-1 cursor-pointer" data-theme="image29.jpg">
+                            <img src="pic/image30.jpg" alt="Image 30" class="theme-option p-1 cursor-pointer" data-theme="image30.jpg">
+                            <img src="pic/image31.jpg" alt="Image 31" class="theme-option p-1 cursor-pointer" data-theme="image31.jpg">
+                            <img src="pic/image32.jpg" alt="Image 32" class="theme-option p-1 cursor-pointer" data-theme="image32.jpg">
+                            <img src="pic/image33.jpg" alt="Image 33" class="theme-option p-1 cursor-pointer" data-theme="image33.jpg">
+                            <img src="pic/image34.jpg" alt="Image 34" class="theme-option p-1 cursor-pointer" data-theme="image34.jpg">
+                            <img src="pic/image35.jpg" alt="Image 35" class="theme-option p-1 cursor-pointer" data-theme="image35.jpg">
+                            <img src="pic/image36.jpg" alt="Image 36" class="theme-option p-1 cursor-pointer" data-theme="image36.jpg">
+                            <img src="pic/image37.jpg" alt="Image 37" class="theme-option p-1 cursor-pointer" data-theme="image37.jpg">
+                            <img src="pic/image38.jpg" alt="Image 38" class="theme-option p-1 cursor-pointer" data-theme="image38.jpg">
+                            <img src="pic/image39.jpg" alt="Image 39" class="theme-option p-1 cursor-pointer" data-theme="image39.jpg">
+                            <img src="pic/image40.jpg" alt="Image 40" class="theme-option p-1 cursor-pointer" data-theme="image40.jpg">
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Animation Section -->
-            <div class="section">
-                <div class="font-mono p-2 label">Animation</div>
-                <select id="animation-select" class="input">
-                    <option value="Still">Still</option>
-                    <option value="Left to Right">Left to Right</option>
-                    <option value="Right to Left">Right to Left</option>
-                    <option value="Up">Up</option>
-                </select>
-            </div>
-
-            <!-- Speed Section -->
-            <div class="section">
-                <div class="font-mono p-2 label">Speed</div>
-                <select id="speed-select" class="input">
-                    <option value="Medium">Medium</option>
-                    <option value="Slow">Slow</option>
-                    <option value="Fast">Fast</option>
-                </select>
-            </div>
-
-            <!-- Theme Section -->
-            <div class="section">
-                <div class="font-mono p-2 label">Theme</div>
-                <select id="theme-select" class="input">
-                    <option value="Light">Light</option>
-                    <option value="Dark">Dark</option>
-                </select>
+            <div class="flex justify-center mt-4">
+                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md generate">Generate</button>
             </div>
         </div>
-        <div class="flex justify-center mt-4">
-            <button id="generate-btn" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md">Generate</button>
-        </div>
+    </div>
+    <script src="java.js"></script>
+
+    <!-- Display Screen -->
+    <div id="display-screen" class="hidden screen flex flex-col items-center justify-center">
+        <canvas id="text-canvas"></canvas>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md back">Back</button>
     </div>
 
-    <div id="display-section" class="hidden fixed inset-0 flex items-center justify-center bg-gray-800 text-white">
-        <div id="display-text" class="text-5xl"></div>
-        <button id="back-btn" class="absolute bottom-4 right-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md">Back</button>
-    </div>
+    <script>
+        const generateButton = document.querySelector('.generate');
+        const backButton = document.querySelector('.back');
 
-    <script src="script.js"></script>
+        generateButton.addEventListener('click', handleGenerateClick);
+        backButton.addEventListener('click', handleBackClick);
+
+        let animationId;
+
+        function resizeCanvas() {
+            const canvas = document.getElementById('text-canvas');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        window.addEventListener('orientationchange', resizeCanvas);
+
+        
+
+
+        function handleGenerateClick() {
+            // Get user input and options
+            const text = document.querySelector('.input[placeholder="Type here..."]').value;
+            const font = document.querySelector('.input[data-label="Font"]').value;
+            const color = document.querySelector('.input[data-label="Color"]').value;
+            const animation = document.querySelector('.input[data-label="Animation"]').value;
+            const speed = document.querySelector('.input[data-label="Speed"]').value;
+            const themeImage = document.querySelector('.dropdown-button img').src;
+            const displayText = document.getElementById('display-text');
+            displayText.textContent = text;
+            displayText.style.fontFamily = font;
+            displayText.style.color = color;
+
+            // Get canvas context
+            const canvas = document.getElementById('text-canvas');
+            const ctx = canvas.getContext('2d');
+            resizeCanvas();
+
+            // Set theme
+            const img = new Image();
+            img.src = themeImage;
+            img.onload = () => {
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                
+                // Set text styles
+                const fontSize = Math.min(canvas.width, canvas.height) * 0.1;
+                ctx.font = `${fontSize}px ${font}`;
+                ctx.fillStyle = color;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+
+                // Clear previous animation
+                cancelAnimationFrame(animationId);
+
+                // Set speed increments
+                let increment;
+                if (speed === 'Slow') {
+                    increment = 0.5;
+                } else if (speed === 'Medium') {
+                    increment = 2;
+                } else if (speed === 'Fast') {
+                    increment = 5;
+                }
+
+                // Draw text with animation
+                let pos = 0;
+                const drawText = () => {
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                    ctx.fillStyle = color;
+
+                    const isPhoneScreen = window.innerWidth <= 768;
+                    if (isPhoneScreen) {
+                        ctx.save();
+                        ctx.translate(canvas.width / 2, canvas.height / 2);
+                        ctx.rotate(-Math.PI / 2);
+                        if (animation === 'Left to Right') {
+                            pos = (pos + increment) % canvas.height;
+                            ctx.fillText(text, pos, 0);
+                        } else if (animation === 'Right to Left') {
+                            pos = (pos - increment + canvas.height) % canvas.height;
+                            ctx.fillText(text, pos, 0);
+                        } else if (animation === 'Up') {
+                            pos = (pos - increment + canvas.width) % canvas.width;
+                            ctx.fillText(text, 0, pos);
+                        } else {
+                            ctx.fillText(text, 0, 0);
+                        }
+                        ctx.restore();
+                    } else {
+                        if (animation === 'Left to Right') {
+                            pos = (pos + increment) % canvas.width;
+                            ctx.fillText(text, pos, canvas.height / 2);
+                        } else if (animation === 'Right to Left') {
+                            pos = (pos - increment + canvas.width) % canvas.width;
+                            ctx.fillText(text, pos, canvas.height / 2);
+                        } else if (animation === 'Up') {
+                            pos = (pos - increment + canvas.height) % canvas.height;
+                            ctx.fillText(text, canvas.width / 2, pos);
+                        } else {
+                            ctx.fillText(text, canvas.width / 2, canvas.height / 2);
+                        }
+                    }
+                    animationId = requestAnimationFrame(drawText);
+                };
+
+                drawText();
+
+                // Switch to the display screen
+                document.getElementById('form-screen').classList.add('hidden');
+                document.getElementById('display-screen').classList.remove('hidden');
+            };
+        }
+
+        function handleBackClick() {
+            // Cancel the animation
+            cancelAnimationFrame(animationId);
+
+            // Switch back to the form screen
+            document.getElementById('display-screen').classList.add('hidden');
+            document.getElementById('form-screen').classList.remove('hidden');
+        }
+
+        // Initial canvas setup
+        resizeCanvas();
+
+        // Theme selection functionality
+        const dropdownButton = document.getElementById('dropdown-button');
+        const themeGrid = document.getElementById('theme-grid');
+        const themeOptions = document.querySelectorAll('.theme-option');
+        
+
+        dropdownButton.addEventListener('click', () => {
+            themeGrid.classList.toggle('hidden');
+        });
+
+        themeOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const selectedImage = option.src;
+                dropdownButton.innerHTML = `<img src="${selectedImage}" alt="Selected Theme" class="w-8 h-8 rounded-full mr-2">`;
+                themeGrid.classList.add('hidden');
+            });
+        });
+
+        // Close theme grid if clicked outside
+        document.addEventListener('click', (event) => {
+            if (!dropdownButton.contains(event.target) && !themeGrid.contains(event.target)) {
+                themeGrid.classList.add('hidden');
+            }
+        });
+
+        // Color selection functionality
+        const colorPicker = document.getElementById('color-picker');
+        const selectedColorBox = document.getElementById('selected-color-box');
+        const selectedColorName = document.getElementById('selected-color-name');
+        const colorDropdown = document.querySelector('.color-dropdown');
+
+        colorPicker.addEventListener('click', () => {
+        console.log('Color picker clicked');
+        colorDropdown.classList.toggle('hidden');
+    });
+
+    colorDropdown.addEventListener('click', (event) => {
+        const colorOption = event.target.closest('.color-option');
+        if (colorOption) {
+            const color = colorOption.dataset.color;
+            console.log('Color selected:', color);
+            selectedColorBox.style.backgroundColor = color;
+            selectedColorName.textContent = colorOption.textContent.trim();
+            colorDropdown.classList.add('hidden');
+        }
+    });
+
+
+
+
+    </script>
 </body>
 </html>
