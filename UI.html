@@ -141,41 +141,25 @@
             const canvas = document.getElementById('text-canvas');
             resizeCanvas();
             const ctx = canvas.getContext('2d');
+            resizeCanvas();
 
-            const backgroundImage = new Image();
-            backgroundImage.src = `pic/${theme}`;
+            // Set theme
+            if (theme === 'Dark') {
+                ctx.fillStyle = 'black';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            } else {
+                ctx.fillStyle = 'white';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
 
-            backgroundImage.onload = function () {
-                ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+            // Set text styles
+            const fontSize = Math.min(canvas.width, canvas.height) * 0.8;
+            ctx.font = `${fontSize}px ${font}`;
+            ctx.fillStyle = color;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
 
-                ctx.font = `50px ${font}`;
-                ctx.fillStyle = color;
-
-                let x = 50;
-                let y = canvas.height / 2;
-
-                switch (animation) {
-                    case 'Still':
-                        ctx.fillText(text, x, y);
-                        break;
-                    case 'Left to Right':
-                        animateText(canvas, ctx, text, x, y, speed, font, color, 'horizontal', 'right');
-                        break;
-                    case 'Right to Left':
-                        animateText(canvas, ctx, text, canvas.width, y, speed, font, color, 'horizontal', 'left');
-                        break;
-                    case 'Up':
-                        animateText(canvas, ctx, text, x, canvas.height, speed, font, color, 'vertical', 'up');
-                        break;
-                    default:
-                        ctx.fillText(text, x, y);
-                }
-            };
-
-            window.addEventListener('resize', resizeCanvas);
-        }
-
-        function animateText(canvas, ctx, text, x, y, speed, font, color, direction, alignment) {
+            // Clear previous animation
             cancelAnimationFrame(animationId);
 
             let dx = 2;
